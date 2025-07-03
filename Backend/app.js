@@ -19,12 +19,12 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cors(
     {
         origin: ["https://deploy-mern-frontend-nine-eta.vercel.app"],
-        method: ["POST", "GET"],
+        methods: ["POST", "GET"],
         credentials: true
     }
 ))
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true}));
 app.use("/admin",AdminRouter);
 
 
