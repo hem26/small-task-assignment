@@ -17,6 +17,7 @@ exports.addPost = async (req, res, next) =>{
             post: newPost
         })
     }catch(error){
+        console.log("Add POST error: ", error);
         res.status(501).json({
             message:"Error creating post",
             error: error.message
