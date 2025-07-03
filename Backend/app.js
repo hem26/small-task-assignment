@@ -15,7 +15,7 @@ const AdminRouter = require("../Backend/routes/Admin");
 const app = express();
 
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 app.use(cors(
     {
         origin: ["https://deploy-mern-frontend-nine-eta.vercel.app"],
