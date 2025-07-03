@@ -3,7 +3,7 @@ const Admin = require("../models/Admin");
 exports.addPost = async (req, res, next) =>{
     try{
         const { title, content } = req.body;
-        const image = req.file ? req.file.filename : null;
+        const image = req.file ? req.file.path : null;
         
         const newPost = new Admin({
             image,

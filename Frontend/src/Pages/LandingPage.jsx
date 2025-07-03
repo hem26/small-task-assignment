@@ -6,9 +6,10 @@ const LandinPage = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(()=>{
+        axios.defaults.withCredentials = true;
         const fetchPosts = async() =>{
             try{
-                const res = await axios.get("http://localhost:5000/admin/get-post");
+                const res = await axios.get("https://small-task-api.vercel.app/admin/get-post");
                 setPosts(res.data.data);
             }catch(err){
                 console.log("Error fetching posts"+ err);
@@ -28,7 +29,7 @@ const LandinPage = () => {
                         className="border-2 rounded-lg shadow-md bg-white flex flex-col items-center p-6 transition-transform hover:scale-105"
                     >
                         <img
-                            src={`http://localhost:5000/uploads/${item.image}`}
+                            src={item.image}
                             alt={item.title}
                             className="w-40 h-40 object-cover rounded mb-4 border"
                         />

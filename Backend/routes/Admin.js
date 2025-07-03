@@ -1,7 +1,7 @@
 const express = require("express");
 const AdminRouter = express.Router();
 const { addPost, getData } = require("../controller/adminOp")
-const upload = require("../middleware/multerConfig")
+const upload = require("../middleware/cloudinaryStorage")
 
 AdminRouter.post("/add-post", upload.single("image"), addPost);
 AdminRouter.get("/get-post", getData);

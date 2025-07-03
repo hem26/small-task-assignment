@@ -16,7 +16,7 @@ const Admin = () =>{
             setForm({...form, [name]: value})
         }
     }
-
+    axios.defaults.withCredentials = true;
     const handleSubmit = async (e) =>{
         e.preventDefault();
         const formData = new FormData();
@@ -27,7 +27,7 @@ const Admin = () =>{
         }
 
         try{
-            const res = await axios.post("http://localhost:5000/admin/add-post", formData, {
+            const res = await axios.post("https://small-task-api.vercel.app/admin/add-post", formData, {
                 headers: {"Content-Type":"multipart/form-data"}
             })
             alert(res.data.message)
